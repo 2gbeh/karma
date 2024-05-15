@@ -1,5 +1,10 @@
-<li @if ($AccountsShow==false and $generalShow==false) class="dis-none" @endif @if
-  (Request::url()===route('reports.accounts.ledger') or Request::url()===route('reports.accounts.trial_balance') or
+<?php            
+  $AccountsShow = (config('role_manage.Ledger.All') or config('role_manage.TrialBalance.All') or config('role_manage.CostOfRevenue.All') or config('role_manage.ProfitOrLossAccount.All') or config('role_manage.RetainedEarning.All') or config('role_manage.FixedAssetsSchedule.All') or config('role_manage.StatementOfFinancialPosition.All') or config('role_manage.CashFlow.All') or config('role_manage.ReceiveAndPayment.All') or config('role_manage.Notes.All'));
+  $generalShow = (config('role_manage.GeneralBranch.All') or config('role_manage.GeneralLedger.All') or config('role_manage.GeneralBankCash.All') or config('role_manage.GeneralVoucher.All'));
+?>
+
+<li @if ($AccountsShow==false and $generalShow==false) class="dis-none" @endif 
+@if  (Request::url()===route('reports.accounts.ledger') or Request::url()===route('reports.accounts.trial_balance') or
   Request::url()===route('reports.accounts.cost_of_revenue') or
   Request::url()===route('reports.accounts.profit_or_loss_account') or
   Request::url()===route('reports.accounts.retained_earnings') or
@@ -28,54 +33,53 @@
         <span>{{ __('root.menu.accounts') }} </span>
       </a>
       <ul class="ml-menu">
-        <li @if (config('role_manage.Ledger.All')==0) class="dis-none" @endif @if
-          (Request::url()===route('reports.accounts.ledger')) class="active " @endif>
+        <li @if (config('role_manage.Ledger.All')==0) class="dis-none" @endif
+         @if          (Request::url()===route('reports.accounts.ledger')) class="active " @endif>
           <a href="{{ route('reports.accounts.ledger') }}">{{ __('root.menu.ledger') }}</a>
         </li>
-        <li @if (config('role_manage.TrialBalance.All')==0) class="dis-none" @endif @if
-          (Request::url()===route('reports.accounts.trial_balance')) class="active " @endif>
+        <li @if (config('role_manage.TrialBalance.All')==0) class="dis-none" @endif 
+        @if          (Request::url()===route('reports.accounts.trial_balance')) class="active " @endif>
           <a href="{{ route('reports.accounts.trial_balance') }}">{{
             __('root.menu.trial_balance') }}</a>
         </li>
-        <li @if (config('role_manage.CostOfRevenue.All')==0) class="dis-none" @endif @if
-          (Request::url()===route('reports.accounts.cost_of_revenue')) class="active " @endif>
+        <li @if (config('role_manage.CostOfRevenue.All')==0) class="dis-none" @endif 
+        @if          (Request::url()===route('reports.accounts.cost_of_revenue')) class="active " @endif>
           <a href="{{ route('reports.accounts.cost_of_revenue') }}">{{
             __('root.menu.cost_of_revenue') }}</a>
         </li>
-        <li @if (config('role_manage.ProfitOrLossAccount.All')==0) class="dis-none" @endif @if
-          (Request::url()===route('reports.accounts.profit_or_loss_account')) class="active " @endif>
+        <li @if (config('role_manage.ProfitOrLossAccount.All')==0) class="dis-none" @endif 
+        @if          (Request::url()===route('reports.accounts.profit_or_loss_account')) class="active " @endif>
           <a href="{{ route('reports.accounts.profit_or_loss_account') }}">{{
             __('root.menu.profit_or_loss_account') }}</a>
         </li>
-        <li @if (config('role_manage.RetainedEarning.All')==0) class="dis-none" @endif @if
-          (Request::url()===route('reports.accounts.retained_earnings')) class="active " @endif>
+        <li @if (config('role_manage.RetainedEarning.All')==0) class="dis-none" @endif 
+        @if          (Request::url()===route('reports.accounts.retained_earnings')) class="active " @endif>
           <a href="{{ route('reports.accounts.retained_earnings') }}">{{
             __('root.menu.retained_earnings') }}</a>
         </li>
-        <li @if (config('role_manage.FixedAssetsSchedule.All')==0) class="dis-none" @endif @if
-          (Request::url()===route('reports.accounts.fixed_asset_schedule')) class="active " @endif>
+        <li @if (config('role_manage.FixedAssetsSchedule.All')==0) class="dis-none" @endif @if          (Request::url()===route('reports.accounts.fixed_asset_schedule')) class="active " @endif>
           <a href="{{ route('reports.accounts.fixed_asset_schedule') }}">{{
             __('root.menu.fixed_asset_schedule') }}</a>
         </li>
-        <li @if (config('role_manage.StatementOfFinancialPosition.All')==0) class="dis-none" @endif @if
-          (Request::url()===route('reports.accounts.balance_sheet')) class="active " @endif>
+        <li @if (config('role_manage.StatementOfFinancialPosition.All')==0) class="dis-none" @endif 
+        @if          (Request::url()===route('reports.accounts.balance_sheet')) class="active " @endif>
           <a href=" {{ route('reports.accounts.balance_sheet') }} ">{{
             __('root.menu.balance_sheet') }}</a>
         </li>
 
-        <li @if (config('role_manage.CashFlow.All')==0) class="dis-none" @endif @if
-          (Request::url()===route('reports.accounts.cash_flow')) class="active" @endif>
+        <li @if (config('role_manage.CashFlow.All')==0) class="dis-none" @endif 
+        @if          (Request::url()===route('reports.accounts.cash_flow')) class="active" @endif>
           <a href="{{ route('reports.accounts.cash_flow') }}">{{ __('root.menu.cash_flow')
             }}</a>
         </li>
 
-        <li @if (config('role_manage.ReceiveAndPayment.All')==0) class="dis-none" @endif @if
-          (Request::url()===route('reports.accounts.receive_payment')) class="active " @endif>
+        <li @if (config('role_manage.ReceiveAndPayment.All')==0) class="dis-none" @endif 
+        @if          (Request::url()===route('reports.accounts.receive_payment')) class="active " @endif>
           <a href="{{ route('reports.accounts.receive_payment') }}">{{
             __('root.menu.receive_payment') }}</a>
         </li>
-        <li @if (config('role_manage.Notes.All')==0) class="dis-none" @endif @if
-          (Request::url()===route('reports.accounts.notes')) class="active " @endif>
+        <li @if (config('role_manage.Notes.All')==0) class="dis-none" @endif 
+        @if          (Request::url()===route('reports.accounts.notes')) class="active " @endif>
           <a href="{{ route('reports.accounts.notes') }}">{{ __('root.menu.notes') }}</a>
         </li>
       </ul>
@@ -84,7 +88,8 @@
     {{-- Accounts Report End --}}
 
     {{-- General Report Start --}}
-    <li @if ($generalShow==false) class="dis-none" @endif @if (Request::url()===route('reports.general.branch') or
+    <li @if ($generalShow==false) class="dis-none" @endif 
+    @if (Request::url()===route('reports.general.branch') or
       Request::url()===route('reports.general.ledger.type') or Request::url()===route('reports.general.bank_cash') or
       Request::url()===route('reports.general.voucher')) class="active " @endif>
       <a class="menu-toggle " href="javascript:void(0);">
@@ -92,26 +97,26 @@
       </a>
 
       <ul class="ml-menu">
-        <li @if (config('role_manage.GeneralBranch.All')==0) class="dis-none" @endif @if
-          (Request::url()===route('reports.general.branch')) class="active " @endif>
+        <li @if (config('role_manage.GeneralBranch.All')==0) class="dis-none" @endif 
+        @if          (Request::url()===route('reports.general.branch')) class="active " @endif>
           <a href="{{ route('reports.general.branch') }}">{{ __('root.menu.general_branch')
             }}</a>
         </li>
 
-        <li @if (config('role_manage.GeneralLedger.All')==0) class="dis-none" @endif @if
-          (Request::url()===route('reports.general.ledger.type')) class="active " @endif>
+        <li @if (config('role_manage.GeneralLedger.All')==0) class="dis-none" @endif 
+        @if          (Request::url()===route('reports.general.ledger.type')) class="active " @endif>
           <a href="{{ route('reports.general.ledger.type') }}">{{
             __('root.menu.general_ledger') }}</a>
         </li>
 
-        <li @if (config('role_manage.GeneralBankCash.All')==0) class="dis-none" @endif @if
-          (Request::url()===route('reports.general.bank_cash')) class="active " @endif>
+        <li @if (config('role_manage.GeneralBankCash.All')==0) class="dis-none" @endif 
+        @if          (Request::url()===route('reports.general.bank_cash')) class="active " @endif>
           <a href="{{ route('reports.general.bank_cash') }}">{{
             __('root.menu.general_bank_cash') }}</a>
         </li>
 
-        <li @if (config('role_manage.GeneralVoucher.All')==0) class="dis-none" @endif @if
-          (Request::url()===route('reports.general.voucher')) class="active " @endif>
+        <li @if (config('role_manage.GeneralVoucher.All')==0) class="dis-none" @endif 
+        @if          (Request::url()===route('reports.general.voucher')) class="active " @endif>
           <a href="{{ route('reports.general.voucher') }}">{{ __('root.menu.general_voucher')
             }}</a>
         </li>

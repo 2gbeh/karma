@@ -126,8 +126,8 @@
     {{-- contra_voucher Start --}}
 
     <li @if (config('role_manage.ContraVoucher.All')==0 and config('role_manage.ContraVoucher.TrashShow')==0 and
-      config('role_manage.ContraVoucher.Create')==0) class="dis-none" @endif @if
-      (Request::url()===route('contra_voucher') or Request::url()===route('contra_voucher.create') or
+      config('role_manage.ContraVoucher.Create')==0) class="dis-none" @endif 
+      @if      (Request::url()===route('contra_voucher') or Request::url()===route('contra_voucher.create') or
       Request::url()===route('contra_voucher.trashed') or Request::url()===route('contra_voucher.active.search') or
       Request::url()===route('contra_voucher.trashed.search')) class="active " @endif>
       <a class="menu-toggle " href="javascript:void(0);">

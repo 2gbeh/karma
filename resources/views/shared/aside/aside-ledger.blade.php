@@ -1,27 +1,26 @@
-<li @if (config('role_manage.LedgerType.All')==0 and config('role_manage.LedgerType.TrashShow')==0 and
+<li @if ( config('role_manage.LedgerType.All')==0 and config('role_manage.LedgerType.TrashShow')==0 and
   config('role_manage.LedgerType.Create')==0 and config('role_manage.LedgerGroup.All')==0 and
   config('role_manage.LedgerGroup.TrashShow')==0 and config('role_manage.LedgerGroup.Create')==0 and
   config('role_manage.LedgerName.All')==0 and config('role_manage.LedgerName.TrashShow')==0 and
-  config('role_manage.LedgerName.Create')==0) class="dis-none" @endif @if (Request::url()===route('income_expense_type')
-  or Request::url()===route('income_expense_type.create') or Request::url()===route('income_expense_type.trashed') or
-  Request::url()===route('income_expense_type.active.search') or
-  Request::url()===route('income_expense_type.trashed.search') or Request::url()===route('income_expense_group') or
+  config('role_manage.LedgerName.Create')==0 ) class="dis-none" @endif @if (
+  Request::url()===route('income_expense_type') or Request::url()===route('income_expense_type.create') or
+  Request::url()===route('income_expense_type.trashed') or Request::url()===route('income_expense_type.active.search')
+  or Request::url()===route('income_expense_type.trashed.search') or Request::url()===route('income_expense_group') or
   Request::url()===route('income_expense_group.create') or Request::url()===route('income_expense_group.trashed') or
   Request::url()===route('income_expense_group.active.search') or
   Request::url()===route('income_expense_group.trashed.search') or Request::url()===route('income_expense_head') or
   Request::url()===route('income_expense_head.create') or Request::url()===route('income_expense_head.trashed') or
   Request::url()===route('income_expense_head.active.search') or
-  Request::url()===route('income_expense_head.trashed.search')) class="active" @endif>
+  Request::url()===route('income_expense_head.trashed.search') ) class="active" @endif>
   <a class="menu-toggle" href="javascript:void(0);">
     <i class="fas fa-file-invoice-dollar"></i>
     <span>{{ __('root.menu.ledger') }} </span>
   </a>
   <ul class="ml-menu">
-
     {{-- Ledger Type Start --}}
     <li @if (config('role_manage.LedgerType.All')==0 and config('role_manage.LedgerType.TrashShow')==0 and
-      config('role_manage.LedgerType.Create')==0) class="dis-none" @endif @if
-      (Request::url()===route('income_expense_type') or Request::url()===route('income_expense_type.create') or
+      config('role_manage.LedgerType.Create')==0) class="dis-none" @endif 
+      @if      (Request::url()===route('income_expense_type') or Request::url()===route('income_expense_type.create') or
       Request::url()===route('income_expense_type.trashed') or
       Request::url()===route('income_expense_type.active.search') or
       Request::url()===route('income_expense_type.trashed.search')) class="active " @endif>
@@ -41,8 +40,8 @@
 
     {{-- Ledger Group Start --}}
     <li @if (config('role_manage.LedgerGroup.All')==0 and config('role_manage.LedgerGroup.TrashShow')==0 and
-      config('role_manage.LedgerGroup.Create')==0) class="dis-none" @endif @if
-      (Request::url()===route('income_expense_group') or Request::url()===route('income_expense_group.create') or
+      config('role_manage.LedgerGroup.Create')==0) class="dis-none" @endif
+       @if      (Request::url()===route('income_expense_group') or Request::url()===route('income_expense_group.create') or
       Request::url()===route('income_expense_group.trashed') or
       Request::url()===route('income_expense_group.active.search') or
       Request::url()===route('income_expense_group.trashed.search')) class="active " @endif>
@@ -73,8 +72,8 @@
 
     {{-- Ledger Name Start --}}
     <li @if (config('role_manage.LedgerName.All')==0 and config('role_manage.LedgerName.TrashShow')==0 and
-      config('role_manage.LedgerName.Create')==0) class="dis-none" @endif @if
-      (Request::url()===route('income_expense_head') or Request::url()===route('income_expense_head.create') or
+      config('role_manage.LedgerName.Create')==0) class="dis-none" @endif 
+      @if      (Request::url()===route('income_expense_head') or Request::url()===route('income_expense_head.create') or
       Request::url()===route('income_expense_head.trashed') or
       Request::url()===route('income_expense_head.active.search') or
       Request::url()===route('income_expense_head.trashed.search')) class="active " @endif>

@@ -63,6 +63,7 @@ return [
     ],
     'LedgerType' => [
         'All' => 1,
+        'TrashShow' => 1,
         'Create' => 1,
         'Delete' => 1,
         'Edit' => 1,
@@ -70,7 +71,6 @@ return [
         'PermanentlyDelete' => 1,
         'Restore' => 1,
         'Show' => 1,
-        'TrashShow' => 1,
     ],
     'LedgerGroup' => [
         'All' => 1,

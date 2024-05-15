@@ -4,8 +4,8 @@
   config('role_manage.InitialIncomeExpenseHeadBalance.TrashShow')==0 and
   config('role_manage.InitialIncomeExpenseHeadBalance.Create')==0 and
   config('role_manage.InitialBankCashBalance.All')==0 and config('role_manage.InitialBankCashBalance.TrashShow')==0 and
-  config('role_manage.InitialBankCashBalance.Create')==0) class="dis-none" @endif @if
-  (Request::url()===route('initial_bank_cash_balance') or Request::url()===route('initial_bank_cash_balance.create') or
+  config('role_manage.InitialBankCashBalance.Create')==0) class="dis-none" @endif 
+  @if  (Request::url()===route('initial_bank_cash_balance') or Request::url()===route('initial_bank_cash_balance.create') or
   Request::url()===route('initial_bank_cash_balance.trashed') or
   Request::url()===route('initial_bank_cash_balance.active.search') or
   Request::url()===route('initial_bank_cash_balance.trashed.search') or
@@ -22,8 +22,8 @@
     {{-- Initial Bank Cash Balance Start --}}
     <li @if (config('role_manage.InitialBankCashBalance.All')==0 and
       config('role_manage.InitialBankCashBalance.TrashShow')==0 and
-      config('role_manage.InitialBankCashBalance.Create')==0) class="dis-none" @endif @if
-      (Request::url()===route('initial_bank_cash_balance') or Request::url()===route('initial_bank_cash_balance.create')
+      config('role_manage.InitialBankCashBalance.Create')==0) class="dis-none" @endif 
+      @if      (Request::url()===route('initial_bank_cash_balance') or Request::url()===route('initial_bank_cash_balance.create')
       or Request::url()===route('initial_bank_cash_balance.trashed') or
       Request::url()===route('initial_bank_cash_balance.active.search') or
       Request::url()===route('initial_bank_cash_balance.trashed.search')) class="active " @endif>
@@ -51,8 +51,8 @@
     {{-- initial_income_expense_head_balance Start --}}
     <li @if (config('role_manage.InitialIncomeExpenseHeadBalance.All')==0 and
       config('role_manage.InitialIncomeExpenseHeadBalance.TrashShow')==0 and
-      config('role_manage.InitialIncomeExpenseHeadBalance.Create')==0) class="dis-none" @endif @if
-      (Request::url()===route('initial_income_expense_head_balance') or
+      config('role_manage.InitialIncomeExpenseHeadBalance.Create')==0) class="dis-none" @endif 
+      @if      (Request::url()===route('initial_income_expense_head_balance') or
       Request::url()===route('initial_income_expense_head_balance.create') or
       Request::url()===route('initial_income_expense_head_balance.trashed') or
       Request::url()===route('initial_income_expense_head_balance.active.search') or
