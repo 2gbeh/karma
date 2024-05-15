@@ -17,7 +17,7 @@
         @includeIf('shared.aside.aside-voucher')
         @includeIf('shared.aside.aside-reports')
         @includeIf('shared.aside.aside-language')
-        {{--  --}}
+        {{-- --}}
         @includeIf('shared.aside.aside-inventory')
         @includeIf('shared.aside.aside-customers')
         @includeIf('shared.aside.aside-vendors')

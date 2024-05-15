@@ -1,26 +1,28 @@
+@php
+$props = (object)[
+'menu' => __('aside-lang.customers.resource'),
+'menu_items' => [
+['customers.create','aside-lang.customers.create.customer'],
+['customers.index','aside-lang.customers.index'],
+['customer-invoices.create','aside-lang.customers.create.invoice'],
+['customer-receipts.create','aside-lang.customers.create.receipt']
+],
+'is_active' => $Bh::activeMenuItem(['customers.*','customer-invoices.*','customer-receipts.*']),
+];
+@endphp
+
 {{-- Customers --}}
-<li>
-  <a class="menu-toggle " href="javascript:void(0);">
+<li @class(['active'=> $props->is_active])>
+  <a class="menu-toggle" href="javascript:void(0);">
     <i class="fas fa-users"></i>
-    <span>{{ __('aside-lang.customers.resource') }} </span>
+    <span>{{ $props->menu }} </span>
   </a>
   <ul class="ml-menu">
-    <li>
-      <a href="{{ route('customers.create') }}">{{
-        __('aside-lang.customers.create.customer') }}</a>
+    @foreach ($props->menu_items as $item)
+    <li @class(['active'=> $Bh::activeMenuItem($item[0])])>
+      <a href="{{ route($item[0]) }}" style="white-space:nowrap;">{{ __($item[1]) }}</a>
     </li>
-    <li>
-      <a href="{{ route('customers.index') }}">{{
-        __('aside-lang.customers.index') }}</a>
-    </li>
-    <li>
-      <a href="{{ route('customer-invoices.create') }}">{{
-        __('aside-lang.customers.create.invoice') }}</a>
-    </li>
-    <li>
-      <a href="{{ route('customer-receipts.create') }}">{{
-        __('aside-lang.customers.create.receipt') }}</a>
-    </li>
+    @endforeach
   </ul>
 </li>
 

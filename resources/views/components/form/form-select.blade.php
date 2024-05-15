@@ -2,7 +2,7 @@
 @props(['label', 'name', 'options', 'colspan' => 12])
 
 @php
-$is_assoc = !array_is_list($options);
+$props = (object)['is_assoc' => !array_is_list($options)];
 @endphp
 
 <div class="col-sm-{{ $colspan }}">
@@ -15,7 +15,7 @@ $is_assoc = !array_is_list($options);
         
         {{-- OPTIONS --}}
         @foreach ($options as $value => $text)
-        <option {{ $Ah::optionAttribs($name, $is_assoc ? $value : $text) }}>
+        <option {{ $Ah::optionAttribs($name, $props->is_assoc ? $value : $text) }}>
           {{ $text }}
         </option>
         @endforeach

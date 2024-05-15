@@ -1,7 +1,7 @@
 <li @if (Request::url()===route('role-manage') or Request::url()===route('role-manage.create') or
   Request::url()===route('role-manage.trashed') or Request::url()===route('role-manage.active.search') or
-  Request::url()===route('role-manage.trashed.search')) class="active" @endif @if
-  (config('role_manage.RoleManager.All')==0 and config('role_manage.RoleManager.TrashShow')==0 and
+  Request::url()===route('role-manage.trashed.search')) class="active" @endif 
+  @if  (config('role_manage.RoleManager.All')==0 and config('role_manage.RoleManager.TrashShow')==0 and
   config('role_manage.RoleManager.Create')==0) class="dis-none" @endif>
   <a class="menu-toggle " href="javascript:void(0);">
     <i class="fas fa-user-lock "></i>

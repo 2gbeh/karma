@@ -2,6 +2,7 @@
 
 namespace App\Helpers;
 
+// $isFocus = fn($name) => request()->routeIs($name)
 class BladeHelper
 {
   static function email_f($email)

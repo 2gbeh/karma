@@ -16,5 +16,5 @@ yarn-error.log
 __ignore
 /public/asset
 /.idea/*
-/resources/lang
+# /resources/lang
 storage/fonts/dompdf_font_family_cache.php
