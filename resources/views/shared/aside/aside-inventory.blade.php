@@ -11,7 +11,19 @@
     </li>
     <li>
       <a href="#">{{
-        __('aside-lang.inventory.index') }}</a>
+        __('aside-lang.inventory.index.inventory') }}</a>
+    </li>
+    <li>
+      <a href="#">{{
+        __('aside-lang.inventory.index.budget') }}</a>
+    </li>
+    <li>
+      <a href="#">{{
+        __('aside-lang.inventory.index.payroll') }}</a>
+    </li>
+    <li>
+      <a href="#">{{
+        __('aside-lang.inventory.index.journal') }}</a>
     </li>
   </ul>
 </li>

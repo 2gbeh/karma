@@ -3,13 +3,18 @@ return [
     'inventory' => [
         'resource' => 'Inventory',
         'create' => 'Add Inventory',
-        'index' => 'View Inventory',
+        'index' => [
+            'inventory' => 'View Inventory',
+            'budget' => 'Budget',
+            'payroll' => 'Payroll',
+            'journal' => 'General Journal',
+        ]
     ],
     'customers' => [
         'resource' => 'Customers',
         'create' => [
-            'customer' => 'Add Customer', 
-            'invoice' => 'Add Invoice', 
+            'customer' => 'Add Customer',
+            'invoice' => 'Add Invoice',
             'receipt' => 'Add Receipt'
         ],
         'index' => 'View Customers',

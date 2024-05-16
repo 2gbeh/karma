@@ -49,4 +49,9 @@ class BladeHelper
   {
     return request()->routeIs($routes);
   }
+
+  static function arrayTop($arr)
+  {
+    return array_slice($arr, 0, 2);
+  }
 }

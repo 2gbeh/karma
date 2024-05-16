@@ -6,7 +6,7 @@
 
 <?php
 $params = (object)[
-  'title' => 'Customer Invoice',
+  'title' => 'Add Invoice',
   'resource' => 'Customers',
   'type' => 'form',
   // 
@@ -20,7 +20,7 @@ $params = (object)[
     'Amount',
     'Action'
   ],
-  'tbody' => array_slice($Ic::INVOICES, 0, 2),
+  'tbody' => $Bh::arrayTop($Ic::INVOICES, 2),  
 ];
 ?>
 
