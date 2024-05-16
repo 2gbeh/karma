@@ -1,5 +1,7 @@
+@props(['as'=>'Save'])
+
 <div class="col-sm-12">
-  <div class="form-line m-t-15" style="float: right;">
+  <div class="form-line" style="float:right;">
     {{-- RESET--}}
     <button type="reset" class="btn btn-secondary m-r-15 waves-effect">
       Cancel

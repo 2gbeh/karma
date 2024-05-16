@@ -2,38 +2,26 @@
 
 @inject('Bh', 'App\Helpers\BladeHelper')
 @inject('Cc', 'App\Constants\CustomerConstant')
+@inject('Ic', 'App\Constants\InvoiceConstant')
 
 <?php
 $params = (object)[
   'title' => 'Customer Invoice',
   'resource' => 'Customers',
   'type' => 'form',
-  'sales_ledger_options' => [1 => "Sales account", 2 => "Inventory account", 3 => "Cost of sales"],
-  'terms_of_payment_options'=> ["COD", "Pay in number of days"],
-  'thead' => ['#', 'Customer Name', 'Email Address', 'Phone Number', 'Sales Ledger', 'Terms of Payment', 'Date Created', 'Action'],
-  'tbody' => $Cc::CUSTOMERS,
+  // 
+  'customer_id_options' => $Bh::ddl_f($Cc::CUSTOMERS, ['id', 'name']),
+  'thead' => [
+    '#', 
+    'Item',
+    'Description',
+    'Rate',
+    'Qty',
+    'Amount',
+    'Action'
+  ],
+  'tbody' => array_slice($Ic::INVOICES, 0, 2),
 ];
-
-// Select customer (customer_id.ddl)
-
-// name
-// email
-// phone
-// address
-
-// invoice_no
-// invoice_date
-// exchange_rate
-// ---
-// item
-// description
-// qty
-// rate
-// amount
-// ---
-// total
-// balance_due
-// [Save] [Print]
 ?>
 
 @section('subtitle', $params->title)
@@ -43,16 +31,26 @@ $params = (object)[
 {{-- --}}
 <div class="row clearfix">
   <div class="col-xs-12">
+    {{-- CREATE INVOICE --}}
     <div class="card">
-      <div class="header">
-        <x-form.form-title :h1="$params->title" p="customer" :as="$params->type" />
-        {{-- FORM --}}
-        @includeIf('admin.customer-invoices.ui.customer-invoice-form')
-      </div>
+      <x-form.form-title-wrapper h1="Create Invoice">
+        @includeIf('admin.customer-invoices.ui.create-invoice')
+      </x-form.form-title-wrapper>
     </div>
-    {{-- TABLE --}}
+
+    {{-- ADD INVOICE ITEM --}}
     <div class="card">
-      @includeIf('admin.customer-invoices.ui.customer-invoice-table')
+      <x-form.form-title-wrapper h1="Add Invoice Item">
+        @includeIf('admin.customer-invoices.ui.add-invoice-item')
+      </x-form.form-title-wrapper>
+
+      {{-- INVOICE TABLE --}}
+      @includeIf('admin.customer-invoices.ui.invoice-table')
+
+      {{--INVOICE TOTAL --}}
+      <x-form.form-title-wrapper h1="">
+        @includeIf('admin.customer-invoices.ui.invoice-total')
+      </x-form.form-title-wrapper>
     </div>
   </div>
 </div>

@@ -9,35 +9,35 @@
         @csrf
         <x-table.table-pagination-with-selected>
           {{-- {{ $items->links() }} --}}
-          </x-table-pagination-with-selected>
-          {{-- --}}
-          <x-table.table-wrapper :thead="$params->thead">
-            @forelse ($params->tbody as $customer)
-            @php
-            $sn = $loop->iteration;
-            $item = (object) $customer;
-            @endphp
-            <tr>
-              <x-table.table-checkbox :sn="$sn" :item="$item" />
-              {{-- --}}
-              <td>{{ $sn }}</td>
-              <td>{{ $item->name }}</td>
-              <td>{!! $Bh::email_f($item->email) !!}</td>
-              <td>{{ $item->phone }}</td>
-              <td>{{ $item->sales_ledger }}</td>
-              <td>{{ $item->terms_of_payment }}</td>
-              <td>{!! $Bh::date_f($item->created_at) !!}</td>
-              {{-- ACTIONS --}}
-              <x-table.table-action :item="$item" :actions="['edit', 'delete']" />
-            </tr>
-            @empty
-            <x-table.table-no-records />
-            @endforelse
-            </x-table-wrapper>
+        </x-table.table-pagination-with-selected>
+        {{-- --}}
+        <x-table.table-wrapper :thead="$params->thead">
+          @forelse ($params->tbody as $customer)
+          @php
+          $sn = $loop->iteration;
+          $item = (object) $customer;
+          @endphp
+          <tr>
+            <x-table.table-checkbox :sn="$sn" :item="$item" />
             {{-- --}}
-            <x-table.table-pagination-with-selected>
-              {{-- {{ $items->links() }} --}}
-              </x-table-pagination-with-selected>
+            <td>{{ $sn }}</td>
+            <td>{{ $item->name }}</td>
+            <td>{!! $Bh::email_f($item->email) !!}</td>
+            <td>{{ $item->phone }}</td>
+            <td>{{ $item->sales_ledger }}</td>
+            <td>{{ $item->terms_of_payment }}</td>
+            <td>{!! $Bh::date_f($item->created_at) !!}</td>
+            {{-- ACTIONS --}}
+            <x-table.table-action :item="$item" :actions="['edit', 'delete']" />
+          </tr>
+          @empty
+          <x-table.table-no-records />
+          @endforelse
+        </x-table.table-wrapper>
+        {{-- --}}
+        <x-table.table-pagination-with-selected>
+          {{-- {{ $items->links() }} --}}
+        </x-table.table-pagination-with-selected>
       </form>
     </div>
   </div>
