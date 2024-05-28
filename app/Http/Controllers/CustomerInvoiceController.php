@@ -2,21 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Helpers\ArrayHelper;
-use App\Helpers\ControllerHelper;
-use App\Http\Requests\StoreCustomerRequest;
 use Illuminate\Http\Request;
-use App\IncomeExpenseType;
 
-class CustomerController extends Controller
+class CustomerInvoiceController extends Controller
 {
-    private $route;
-
-    public function __construct()
-    {
-        $this->route = 'customers';
-    }
-
     /**
      * Display a listing of the resource.
      *
@@ -34,23 +23,7 @@ class CustomerController extends Controller
      */
     public function create()
     {
-        // 
-        return ControllerHelper::view([
-            'title' => 'Add Customer',
-            'resource' => 'Customers',
-            'type' => 'form',
-            'action' => $this->route . '.store',
-            "sales_ledger_options" => ArrayHelper::toAssoc(IncomeExpenseType::all()),
-            'terms_of_payment_options' => ["COD", "Pay in number of days"],
-            'defaults' => [
-                'name' => 'john doe',
-                'email' => 'john@email.com',
-                'phone' => '12345678901',
-                'address' => 'john@example.com',
-                'sales_ledger_id' => 4,
-                'terms_of_payment' => "COD",
-            ]
-        ]);
+        //
     }
 
     /**
@@ -59,13 +32,9 @@ class CustomerController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreCustomerRequest $request)
+    public function store(Request $request)
     {
         //
-        $validated = $request->validated();
-        
-
-        dd($validated);
     }
 
     /**

@@ -19,6 +19,18 @@ return [
 
     /*
     |--------------------------------------------------------------------------
+    | View Root Directory
+    |--------------------------------------------------------------------------
+    |
+    | This option specifies if you're using a custom directory within
+    | ./resources/views/** to separate pages from components and containers
+    |
+    */
+
+    'root' => 'pages.', // or ''
+
+    /*
+    |--------------------------------------------------------------------------
     | Compiled View Path
     |--------------------------------------------------------------------------
     |

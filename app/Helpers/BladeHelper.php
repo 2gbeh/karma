@@ -50,8 +50,10 @@ class BladeHelper
     return request()->routeIs($routes);
   }
 
-  static function arrayTop($arr)
+  static function optionAttribs($name, $value, $defaults)
   {
-    return array_slice($arr, 0, 2);
+    $res = "value={$value}";
+    if ($value == old($name, $defaults[$name] ?? null)) $res .= " selected";
+    echo $res;
   }
 }

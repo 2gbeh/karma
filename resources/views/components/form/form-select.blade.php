@@ -1,5 +1,5 @@
-@inject('Ah', 'App\Helpers\ArrayHelper')
-@props(['label', 'name', 'options', 'colspan' => 12])
+@inject('Bh', 'App\Helpers\BladeHelper')
+@props(['label', 'name', 'defaults' => [], 'options', 'colspan' => 12])
 
 @php
 $props = (object)['is_assoc' => !array_is_list($options)];
@@ -12,10 +12,11 @@ $props = (object)['is_assoc' => !array_is_list($options)];
         >
         {{-- LABEL --}}
         <option value="0" hidden>{{ $label }}</option>
-        
+
         {{-- OPTIONS --}}
         @foreach ($options as $value => $text)
-        <option {{ $Ah::optionAttribs($name, $props->is_assoc ? $value : $text) }}>
+        @php $value = $props->is_assoc ? $value : $text @endphp
+        <option {{ $Bh::optionAttribs($name, $value, $defaults) }}>
           {{ $text }}
         </option>
         @endforeach

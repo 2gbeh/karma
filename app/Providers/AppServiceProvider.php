@@ -22,7 +22,9 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         Paginator::useBootstrap();
+        
         Schema::defaultStringLength(191);
+        
         if (!app()->runningInConsole()) {
             // Share settings
             if (Cache::get('system_settings') && Cache::get('system_settings') != null) {

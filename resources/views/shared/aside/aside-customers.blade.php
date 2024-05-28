@@ -4,8 +4,8 @@ $props = (object)[
 'menu_items' => [
 ['customers.create','aside-lang.customers.create.customer'],
 ['customers.index','aside-lang.customers.index'],
-['customer-invoices.create','aside-lang.customers.create.invoice'],
-['customer-receipts.create','aside-lang.customers.create.receipt']
+// ['customer.invoices.create','aside-lang.customers.create.invoice'],
+// ['customer.receipts.create','aside-lang.customers.create.receipt']
 ],
 'is_active' => $Bh::activeMenuItem(['customers.*','customer-invoices.*','customer-receipts.*']),
 ];

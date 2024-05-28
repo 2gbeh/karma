@@ -28,6 +28,9 @@ Auth::routes();
 
 //Route::get('/', 'HomeController@index')->name('home');
 
+// EXTENDED ROUTES
+include_once __DIR__ . '/web/customers-route.php';
+
 Route::group(['middleware' => 'auth'], function () {
 
     Route::get('logout', 'Auth\LoginController@logout');
@@ -1489,5 +1492,4 @@ Route::group(['middleware' => 'auth'], function () {
     ]);
     //    Branch Manage End
 
-    include_once __DIR__ . '/web/customers-route.php';
 });

@@ -13,7 +13,7 @@ Homestead.yaml
 npm-debug.log
 yarn-error.log
 
-__ignore
+/__ignore__
 /public/asset
 /.idea/*
 # /resources/lang

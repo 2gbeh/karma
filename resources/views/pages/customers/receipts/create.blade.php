@@ -18,6 +18,7 @@ $params = (object)[
   'resource' => 'Receipts',
   'type' => 'form',
   // 
+  'customer_id_options' => $Bh::ddl_f($Cc::CUSTOMERS, ['id', 'name']),
   'invoice_id_options' => getInvoiceNo($Bh::ddl_f($Ic::INVOICES, ['id', 'rate'])),
 ];
 ?>
@@ -34,8 +35,10 @@ $params = (object)[
         <form class="form" id="form_validation" method="post" action="">
           @csrf
           <div class="row clearfix">
+            <x-form.form-select label="Select Customer" name="customer_id" :options="$params->customer_id_options"
+              required colspan="6" />
             <x-form.form-select label="Select Invoice" name="invoice_id" :options="$params->invoice_id_options" required
-              colspan="3" />
+              colspan="6" />
           </div>
           <div class="row clearfix">
             {{-- CUSTOMER INFO --}}

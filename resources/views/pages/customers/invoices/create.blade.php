@@ -1,5 +1,6 @@
 @extends('layouts.form-table-layout')
 
+@inject('Ah', 'App\Helpers\ArrayHelper')
 @inject('Bh', 'App\Helpers\BladeHelper')
 @inject('Cc', 'App\Constants\CustomerConstant')
 @inject('Ic', 'App\Constants\InvoiceConstant')
@@ -20,7 +21,7 @@ $params = (object)[
     'Amount',
     'Action'
   ],
-  'tbody' => $Bh::arrayTop($Ic::INVOICES, 2),  
+  'tbody' => $Ah::arrayTop($Ic::INVOICES, 2),  
 ];
 ?>
 
