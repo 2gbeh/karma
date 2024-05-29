@@ -2,26 +2,9 @@
 
 @inject('Bh', 'App\Helpers\BladeHelper')
 @inject('Cc', 'App\Constants\CustomerConstant')
+@inject('IETs', 'App\Services\IncomeExpenseTypeService')
 
-<?php
-$params = (object)[
-  'title' => 'View Customer',
-  'resource' => 'Customers',
-  'type' => 'table',
-  // 
-  'thead' => [
-    '#', 
-    'Customer Name', 
-    'Email Address', 
-    'Phone Number', 
-    'Sales Ledger', 
-    'Terms of Payment', 
-    'Date Created', 
-    'Action'
-  ],
-  'tbody' => $Cc::CUSTOMERS,
-];
-?>
+<?php $params = (object)$params ?>
 
 @section('title', $params->title)
 
@@ -50,7 +33,7 @@ $params = (object)[
             <td>{{ $item->name }}</td>
             <td>{!! $Bh::email_f($item->email) !!}</td>
             <td>{{ $item->phone }}</td>
-            <td>{{ $item->sales_ledger }}</td>
+            <td>{{ $IETs::getName($item->income_expense_type_id) }}</td>
             <td>{{ $item->terms_of_payment }}</td>
             <td>{!! $Bh::date_f($item->created_at) !!}</td>
             {{-- ACTIONS --}}

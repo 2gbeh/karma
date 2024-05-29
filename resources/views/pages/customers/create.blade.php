@@ -22,7 +22,7 @@
             {{-- --}}
             <x-form.form-input label="Home Address" name="address" :defaults="$params->defaults" required />
             {{-- --}}
-            <x-form.form-select label="Sales Ledger" name="sales_ledger_id" :defaults="$params->defaults"
+            <x-form.form-select label="Sales Ledger" name="income_expense_type_id" :defaults="$params->defaults"
               :options="$params->sales_ledger_options" required colspan="6" />
             <x-form.form-select label="Terms of Payment" name="terms_of_payment" :defaults="$params->defaults"
               :options="$params->terms_of_payment_options" required colspan="6" />

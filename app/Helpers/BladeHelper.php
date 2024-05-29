@@ -52,8 +52,9 @@ class BladeHelper
 
   static function optionAttribs($name, $value, $defaults)
   {
-    $res = "value={$value}";
+    $res = 'value="'.$value.'"';
     if ($value == old($name, $defaults[$name] ?? null)) $res .= " selected";
+    
     echo $res;
   }
 }

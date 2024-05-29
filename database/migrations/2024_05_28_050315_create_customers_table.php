@@ -19,7 +19,8 @@ class CreateCustomersTable extends Migration
             $table->string('email')->unique();
             $table->string('phone');
             $table->string('address');
-            $table->unsignedInteger('sales_ledger_id');
+            // $table->unsignedInteger('sales_ledger_id');
+            $table->foreignIdFor(\App\IncomeExpenseType::class);
             $table->string('terms_of_payment');
             $table->tinyInteger('terms_of_payment_in_days')->nullable();
             // 

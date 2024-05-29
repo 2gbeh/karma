@@ -1,8 +1,8 @@
 @inject('Bh', 'App\Helpers\BladeHelper')
-@props(['label', 'name', 'defaults' => [], 'options', 'colspan' => 12])
+@props(['label', 'name', 'defaults' => [], 'options' => [], 'colspan' => 12])
 
 @php
-$props = (object)['is_assoc' => !array_is_list($options)];
+$props = (object)['options_is_assoc' => !array_is_list($options)];
 @endphp
 
 <div class="col-sm-{{ $colspan }}">
@@ -14,8 +14,8 @@ $props = (object)['is_assoc' => !array_is_list($options)];
         <option value="0" hidden>{{ $label }}</option>
 
         {{-- OPTIONS --}}
-        @foreach ($options as $value => $text)
-        @php $value = $props->is_assoc ? $value : $text @endphp
+        @foreach ($options as $i => $text)
+        @php $value = $props->options_is_assoc ? $i : $text @endphp
         <option {{ $Bh::optionAttribs($name, $value, $defaults) }}>
           {{ $text }}
         </option>
