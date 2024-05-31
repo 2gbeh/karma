@@ -24,7 +24,7 @@ class BladeHelper
     return $date . '<br/>' . $time;
   }
 
-  static function ddl_f($collection, $pick, $len = -1)
+  static function ddl_f($collection, $pick = ['id', 'name'], $len = -1)
   {
     $ddl =  [];
     [$i, $j] = is_array($pick) ? [$pick[0], $pick[1]] : [$pick, $pick];
@@ -52,9 +52,9 @@ class BladeHelper
 
   static function optionAttribs($name, $value, $defaults)
   {
-    $res = 'value="'.$value.'"';
+    $res = 'value="' . $value . '"';
     if ($value == old($name, $defaults[$name] ?? null)) $res .= " selected";
-    
+
     echo $res;
   }
 }

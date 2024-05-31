@@ -21,6 +21,9 @@
         @includeIf('shared.aside.aside-customers')
         @includeIf('shared.aside.aside-inventory')
         @includeIf('shared.aside.aside-vendors')
+        @includeIf('shared.aside.aside-budget')
+        @includeIf('shared.aside.aside-payroll')
+        @includeIf('shared.aside.aside-general-journal')
         {{-- --}}
         @includeIf('shared.aside.aside-users')
         @includeIf('shared.aside.aside-roles')

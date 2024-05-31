@@ -1,20 +1,15 @@
 @php
 $props = (object)[
-'menu' => __('aside-lang.customers.resource'),
-'menu_items' => [
-['customers.create','aside-lang.customers.create.customer'],
-['customers.index','aside-lang.customers.index'],
-['customers.invoices.create','aside-lang.customers.create.invoice'],
-['customers.receipts.create','aside-lang.customers.create.receipt']
-],
-'is_active' => $Bh::activeMenuItem(['customers.*']),
+'menu' => __('aside-lang.budget.resource'),
+'menu_items' => [],
+'is_active' => $Bh::activeMenuItem(['budget.*']),
 ];
 @endphp
 
 {{-- Customers --}}
 <li @class(['active'=> $props->is_active])>
   <a class="menu-toggle" href="javascript:void(0);">
-    <i class="fas fa-users"></i>
+    <i class="fas fa-piggy-bank"></i>
     <span>{{ $props->menu }} </span>
   </a>
   <ul class="ml-menu">

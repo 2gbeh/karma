@@ -3,12 +3,7 @@ return [
     'inventory' => [
         'resource' => 'Inventory',
         'create' => 'Add Inventory',
-        'index' => [
-            'inventory' => 'View Inventory',
-            'budget' => 'Budget',
-            'payroll' => 'Payroll',
-            'journal' => 'General Journal',
-        ]
+        'index' => 'View Inventory'
     ],
     'customers' => [
         'resource' => 'Customers',
@@ -29,5 +24,14 @@ return [
             'invocies' => 'Receive Invoice',
             'purchases' => 'Purchase',
         ]
+    ],
+    'budget' => [
+        'resource' => 'Budget',
+    ],
+    'payroll' => [
+        'resource' => 'Payroll',
+    ],
+    'general-journal' => [
+        'resource' => 'General Journal',
     ]
 ];

@@ -2,28 +2,54 @@
 
 namespace App\Http\Controllers;
 
+use App\Constants\CustomerConstant;
+use App\Constants\InvoiceConstant;
+use App\Helpers\ArrayHelper;
+use App\Helpers\BladeHelper;
+use App\Helpers\ControllerHelper;
+use App\IncomeExpenseType;
+use App\Models\Customer;
+use App\Models\CustomerInvoice;
 use Illuminate\Http\Request;
 
 class CustomerInvoiceController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    private $route;
+
+    public function __construct()
+    {
+        $this->route = 'customers.invoices';
+    }
+
     public function index()
     {
         //
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
         //
+        $customers = true ? Customer::all() : CustomerConstant::CUSTOMERS;
+        $invoices = false ? CustomerInvoice::all() : InvoiceConstant::INVOICES;
+
+        return ControllerHelper::view([
+            'title' => 'Add Invoice',
+            'resource' => 'Customers',
+            'type' => 'form',
+            'action' => $this->route . '.store',
+            // 
+            'customer_id_options' => BladeHelper::ddl_f($customers),
+            'thead' => [
+                '#',
+                'Item',
+                'Description',
+                'Rate',
+                'Qty',
+                'Amount',
+                'Action'
+            ],
+            'tbody' => ArrayHelper::arrayTop($invoices, 2),
+        ]);
     }
 
     /**

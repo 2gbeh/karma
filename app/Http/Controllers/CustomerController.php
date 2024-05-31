@@ -55,7 +55,7 @@ class CustomerController extends Controller
             // 
             "sales_ledger_options" => $sales_ledger_options,
             'terms_of_payment_options' => ["COD", "Pay in number of days"],
-            'defaults' => [
+            'defaults' => true ? [] : [
                 'name' => 'john doe',
                 'email' => 'john@email.com',
                 'phone' => '12345678901',

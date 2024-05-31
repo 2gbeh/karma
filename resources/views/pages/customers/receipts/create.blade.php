@@ -18,7 +18,7 @@ $params = (object)[
   'resource' => 'Receipts',
   'type' => 'form',
   // 
-  'customer_id_options' => $Bh::ddl_f($Cc::CUSTOMERS, ['id', 'name']),
+  'customer_id_options' => $Bh::ddl_f($Cc::CUSTOMERS),
   'invoice_id_options' => getInvoiceNo($Bh::ddl_f($Ic::INVOICES, ['id', 'rate'])),
 ];
 ?>

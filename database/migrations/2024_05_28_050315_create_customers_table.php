@@ -7,19 +7,20 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateCustomersTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
+    private $table;
+
+    public function __construct()
+    {
+        $this->table = 'customers';
+    }
+
     public function up()
     {
-        Schema::create('customers', function (Blueprint $table) {
+        Schema::create($this->table, function (Blueprint $table) {
             $table->string('name')->index();
             $table->string('email')->unique();
             $table->string('phone');
             $table->string('address');
-            // $table->unsignedInteger('sales_ledger_id');
             $table->foreignIdFor(\App\IncomeExpenseType::class);
             $table->string('terms_of_payment');
             $table->tinyInteger('terms_of_payment_in_days')->nullable();
@@ -28,13 +29,8 @@ class CreateCustomersTable extends Migration
         });
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
     public function down()
     {
-        Schema::dropIfExists('customers');
+        Schema::dropIfExists($this->table);
     }
 }
